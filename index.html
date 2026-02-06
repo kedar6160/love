@@ -4,106 +4,129 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kedar ❤️ Shilpa</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffd6e8,#e0f4ff,#fff1c1);font-family:'Comic Sans MS','Poppins',cursive;overflow:hidden}
-.card{background:#ffffffcc;backdrop-filter:blur(10px);border-radius:30px;padding:20px 40px 50px;text-align:center;box-shadow:0 18px 30px rgba(0,0,0,.08);position:relative}
-h1{color:#ff6f91;margin-bottom:10px}
-p{color:#555;margin-bottom:20px}
-.scene{width:160px;height:160px;margin:0 auto 30px;position:relative;perspective:1000px;perspective-origin:50% 100%}
-#cubeWrap{width:160px;height:160px;transform:scale(0.9)}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ffd6e8,#e0f4ff,#fff1c1);
+  font-family:'Comic Sans MS','Poppins',cursive;
+  overflow:hidden
+}
+.card{
+  background:#ffffffcc;
+  backdrop-filter:blur(10px);
+  border-radius:30px;
+  padding:20px 40px 50px;
+  text-align:center;
+  box-shadow:0 18px 30px rgba(0,0,0,.08);
+  position:relative;
+  z-index:1;
+}
+.scene{width:160px;height:160px;margin:0 auto 30px;perspective:1000px}
+#cubeWrap{width:160px;height:160px;transform:scale(.9)}
 #cubeWrap.toss{animation:tossScale 5s cubic-bezier(.22,.61,.36,1)}
-#cube{width:100%;height:100%;position:absolute;transform-style:preserve-3d;cursor:pointer;transition:transform 5s cubic-bezier(.22,.61,.36,1)}
-@keyframes tossScale{0%{transform:scale(0.9)}40%{transform:scale(1.05)}100%{transform:scale(0.9)}}
-#cube.wobble{animation:wobble .6s ease}
-@keyframes wobble{0%{transform:scale(1)}40%{transform:scale(1.08,.92)}100%{transform:scale(1)}}
-.face{position:absolute;width:160px;height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffe6f0,#ffd1e3);border:2px solid #ff8fab;border-radius:26px;font-size:3.2rem;font-weight:bold;color:#ff4d6d;box-shadow:inset 0 6px 10px rgba(255,255,255,.85),inset 0 -6px 10px rgba(0,0,0,.05),0 14px 22px rgba(0,0,0,.15)}
+#cube{
+  width:100%;height:100%;
+  position:absolute;
+  transform-style:preserve-3d;
+  cursor:pointer;
+  transition:transform 5s cubic-bezier(.22,.61,.36,1)
+}
+@keyframes tossScale{0%{transform:scale(.9)}40%{transform:scale(1.05)}100%{transform:scale(.9)}}
+.face{
+  position:absolute;
+  width:160px;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,#ffe6f0,#ffd1e3);
+  border-radius:26px;
+  font-size:3.2rem;
+  font-weight:bold;
+  color:#ff4d6d
+}
 .front{transform:translateZ(100px)}
 .back{transform:rotateX(-180deg) translateZ(100px)}
 .right{transform:rotateY(90deg) translateZ(100px)}
 .left{transform:rotateY(-90deg) translateZ(100px)}
 .top{transform:rotateX(90deg) translateZ(100px)}
 .bottom{transform:rotateX(-90deg) translateZ(100px)}
-.cat{position:absolute;bottom:-240px;left:50%;transform:translateX(-50%);font-size:5.5rem;transition:bottom .6s ease;pointer-events:none}
-.cat.show{bottom:40px}
-.cat.turn{animation:catTurn .8s ease-in-out}
-@keyframes catTurn{0%{transform:translateX(-50%) rotate(0)}40%{transform:translateX(-50%) rotate(-12deg)}70%{transform:translateX(-50%) rotate(8deg)}100%{transform:translateX(-50%) rotate(0)}}
-.paw{position:absolute;right:-40px;top:60px;font-size:2rem;opacity:0}
-.paw.slap{animation:slap .5s ease forwards}
-@keyframes slap{0%{opacity:0;transform:translateX(0)}30%{opacity:1;transform:translateX(-20px)}100%{opacity:0;transform:translateX(-40px)}}
-.speech{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);background:#fff;padding:10px 16px;border-radius:18px;font-size:1rem;color:#ff4d6d;opacity:0;transition:.3s}
-.speech.show{opacity:1}
-.final{position:fixed;inset:0;background:linear-gradient(135deg,#ffd6e8,#fff);display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:2rem;color:#ff4d6d;opacity:0;pointer-events:none;transition:.6s}
-.final.show{opacity:1;pointer-events:auto}
-.final h2{animation:bounce 1.2s ease infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.heart,.confetti{position:absolute;animation:pop 1.8s ease forwards}
-@keyframes pop{0%{opacity:0;transform:scale(0)}30%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:translateY(-200px)}}
-.futurePrompt{margin-top:30px;padding-top:20px;border-top:2px dashed #ffb3c6;font-size:1.6rem;animation:fadeUp .8s ease;text-align:center}
-.futurePrompt button{margin-top:20px;padding:14px 26px;border-radius:22px;border:none;background:#ff6f91;color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.15)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.hand{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:20px}
-.tarot{height:180px;border-radius:14px;background:linear-gradient(135deg,#ff8fab,#ffc6d9);cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1rem;color:#fff;padding:14px;transition:.6s}
-.tarot.picked{background:#fff;color:#ff4d6d}
-.tarot.fade{opacity:0;transform:translateY(40px)}
-@media (max-width: 480px) {
-  .card {
-    padding: 20px 20px 40px;
-    width: 90vw;
-  }
 
-  .hand {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .tarot {
-    aspect-ratio: 2 / 3;
-    width: 100px;
-    font-size: 1rem;
-  }
-  
-  .scene {
-    width: 160px;
-    height: 160px;
-    perspective: 700px;
-    margin-bottom: 20px;
-  }
-
-  #cubeWrap {
-    width: 160px;
-    height: 160px;
-  }
-
-  #cube {
-    width: 160px;
-    height: 160px;
-  }
-
-  .face {
-    width: 160px;
-    height: 160px;
-    font-size: 2.4rem;
-    border-radius: 22px;
-  }
-
-  .front  { transform: translateZ(80px); }
-  .back   { transform: rotateX(-180deg) translateZ(80px); }
-  .right  { transform: rotateY(90deg) translateZ(80px); }
-  .left   { transform: rotateY(-90deg) translateZ(80px); }
-  .top    { transform: rotateX(90deg) translateZ(80px); }
-  .bottom { transform: rotateX(-90deg) translateZ(80px); }
-
+.cat{
+  position:fixed;
+  bottom:-240px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:5.5rem;
+  transition:bottom .6s ease;
+  cursor:pointer;
+  pointer-events:auto;
+  z-index:9999;
 }
+.cat.show{bottom:40px}
+.cat.turn{animation:catTurn .8s ease}
+@keyframes catTurn{
+  0%{transform:translateX(-50%) rotate(0)}
+  40%{transform:translateX(-50%) rotate(-12deg)}
+  70%{transform:translateX(-50%) rotate(8deg)}
+  100%{transform:translateX(-50%) rotate(0)}
+}
+.paw{position:absolute;right:-40px;top:60px;font-size:2rem;opacity:0}
+.speech{
+  position:fixed;
+  bottom:140px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#fff;
+  padding:10px 16px;
+  border-radius:18px;
+  font-size:1rem;
+  color:#ff4d6d;
+  opacity:0;
+  transition:.3s;
+  z-index:9999;
+}
+.speech.show{opacity:1}
 
+.final{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ffd6e8,#fff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  font-size:2rem;
+  color:#ff4d6d;
+  opacity:0;
+  pointer-events:none;
+  transition:.6s;
+  z-index:10;
+}
+.final.show{opacity:1;pointer-events:auto}
+
+.heart,.confetti{
+  position:fixed;
+  animation:pop 1.8s ease forwards;
+  z-index:9999;
+}
+@keyframes pop{
+  0%{opacity:0;transform:scale(0)}
+  30%{opacity:1;transform:scale(1.2)}
+  100%{opacity:0;transform:translateY(-200px)}
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
   <h2>💖 Be My Valentine? 💖</h2>
-  <p>My buddy is asking… destiny needs supervision 😼</p>
+  <p>Destiny needs supervision 😼</p>
+
   <div class="scene">
     <div id="cubeWrap">
       <div id="cube">
@@ -116,118 +139,82 @@ p{color:#555;margin-bottom:20px}
       </div>
     </div>
   </div>
-  <div id="cat" class="cat">🐱<div id="paw" class="paw">🐾</div></div>
-  <div id="speech" class="speech"></div>
 </div>
+
+<div id="cat" class="cat">🐱<div class="paw">🐾</div></div>
+<div id="speech" class="speech"></div>
 <div id="final" class="final"></div>
+
 <audio id="meow" src="https://actions.google.com/sounds/v1/animals/cat_purr_close.ogg"></audio>
-<audio id="thud" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+
 <script>
 const cube=document.getElementById('cube');
 const wrap=document.getElementById('cubeWrap');
 const cat=document.getElementById('cat');
-const paw=document.getElementById('paw');
 const speech=document.getElementById('speech');
 const final=document.getElementById('final');
 const meow=document.getElementById('meow');
-const thud=document.getElementById('thud');
-let rollCount=0,rolling=false;
-const initialCatLines=["😼 I suspect you did some cheating","🙀 ohh my bad, I touched it… mew mew","😺 ohh cute dice, let me play with it"];
-const extraCatLines=["😼 No is not an option","🐾 I will fix destiny","😹 Dice needs supervision"];
 
-function rollDice(){
+let rolling=false;
+let lastCatTap=0;
+
+cube.addEventListener('click',()=>{
   if(rolling) return;
-  rolling=true; rollCount++;
-  wrap.classList.remove('toss'); void wrap.offsetWidth; wrap.classList.add('toss');
-  let roll;
-  if(rollCount<=2){ roll={x:0,y:90,r:'NO'}; }
-  else{ roll=Math.random()<0.5?{x:0,y:0,r:'YES'}:{x:0,y:90,r:'NO'}; }
-  cube.style.transform=`rotateX(${roll.x+720}deg) rotateY(${roll.y+720}deg)`;
-  setTimeout(()=>{ roll.r==='NO'?catAttack():showFinal(); },5000);
-}
+  rolling=true;
+  wrap.classList.add('toss');
+  cube.style.transform=`rotateX(720deg) rotateY(810deg)`;
+  setTimeout(()=>catAttack(),5000);
+});
 
 function catAttack(){
   cat.classList.add('show','turn');
-  const line = rollCount<=2 ? initialCatLines[Math.floor(Math.random()*initialCatLines.length)] : extraCatLines[Math.floor(Math.random()*extraCatLines.length)];
-  speech.textContent=line; speech.classList.add('show');
-  meow.play(); if(navigator.vibrate) navigator.vibrate(120);
-  setTimeout(()=>{ paw.classList.add('slap'); cube.classList.add('wobble'); thud.play(); cube.style.transform+=' rotateY(180deg)'; },800);
-  setTimeout(()=>{ paw.classList.remove('slap'); cube.classList.remove('wobble'); speech.classList.remove('show'); cat.classList.remove('show','turn'); rolling=false; rollDice(); },2000);
+  speech.textContent="😼 Hmm… destiny needs help.";
+  speech.classList.add('show');
+  meow.play();
+  setTimeout(()=>{
+    speech.classList.remove('show');
+    rolling=false;
+  },2000);
 }
 
-function showFinal(){
-  final.innerHTML=`<h3>Kedar ❤️ Shilpa</h3><div>You’re officially my Valentine 💍</div><div class="futurePrompt"><button id="next">Wanna know your future? 😼</button></div>`;
-  final.classList.add('show');
-  for(let i=0;i<30;i++)spawn('💗','heart'); for(let i=0;i<25;i++)spawn('🎉','confetti');
-  setTimeout(()=>{ document.getElementById('next').onclick=futureRound; },200);
-}
+cat.addEventListener('click',()=>{
+  const now=Date.now();
+  if(now-lastCatTap<400){
+    triggerEasterEgg();
+  }
+  lastCatTap=now;
+});
 
-function futureRound(){
-  final.innerHTML=`<h4 style="margin-bottom:20px">🔮 Your Love Tarot</h4><div class="hand"></div><div id="kittyLine" style="margin-top:25px;font-size:1.3rem;color:#ff6f91;opacity:0;transition:.4s"></div>`;
-  const hand=final.querySelector('.hand');
-  const kittyLine=document.getElementById('kittyLine');
-  const cards=[
-    {icon:'🌙',text:'Love grows quietly but deeply. Trust the calm.'},
-    {icon:'💫',text:'A magical connection is already forming.'},
-    {icon:'🕯️',text:'Warmth, patience, and late-night talks ahead.'},
-    {icon:'🪐',text:'Destiny is aligning paths for something long-term.'},
-    {icon:'🌸',text:'A gentle romance blooms when you least expect it.'}
-  ];
-  cards.forEach((c)=>{
-    const el=document.createElement('div');
-    el.className='tarot';
-    el.textContent=c.icon;
-    el.onclick=()=>pickCard(el,c.text);
-    hand.appendChild(el);
-  });
-}
-
-const kittyLines=[
-  '😽 Ooooh… fate chose well.',
-  '🐾 I approve this love energy.',
-  '💞 Destiny says… don’t overthink it.',
-  '😼 I saw this coming, you know.'
-];
-function pickCard(card,text){
-  document.querySelectorAll('.tarot').forEach(c=>{
-    c.style.pointerEvents='none';
-    if(c!==card) c.classList.add('fade');
-  });
-  card.classList.add('picked');
-  card.textContent=text;
-  const kittyLine=document.getElementById('kittyLine');
-  kittyLine.textContent=kittyLines[Math.floor(Math.random()*kittyLines.length)];
-  setTimeout(()=>kittyLine.style.opacity=1,600);
-}
-
-function spawn(sym,cls){ const e=document.createElement('div'); e.className=cls; e.textContent=sym; e.style.left=Math.random()*100+'vw'; e.style.bottom='0'; document.body.appendChild(e); setTimeout(()=>e.remove(),2000); }
-
-cube.addEventListener('click',rollDice);
-
-  function triggerEasterEgg() {
-  // Prevent spam
-  if (final.classList.contains('show')) return;
+function triggerEasterEgg(){
+  if(final.classList.contains('show')) return;
 
   meow.play();
-  if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
-
-  speech.textContent = "😽 Pssst… he really loves you, you know.";
+  cat.classList.add('show','turn');
+  speech.textContent="😽 Secret unlocked… he chose you without dice.";
   speech.classList.add('show');
 
-  cat.classList.add('show','turn');
+  for(let i=0;i<20;i++)spawn('💖','heart');
 
-  // Cute explosion
-  for (let i = 0; i < 18; i++) spawn('💖', 'heart');
+  setTimeout(()=>{
+    speech.textContent="🐾 Forever approved by the cat.";
+  },1200);
 
-  setTimeout(() => {
-    speech.textContent = "🐾 Secret unlocked: Forever mode enabled.";
-  }, 1200);
-
-  setTimeout(() => {
+  setTimeout(()=>{
     speech.classList.remove('show');
     cat.classList.remove('turn');
-  }, 3000);
-  }
+  },3000);
+}
+
+function spawn(sym,cls){
+  const e=document.createElement('div');
+  e.className=cls;
+  e.textContent=sym;
+  e.style.left=Math.random()*100+'vw';
+  e.style.bottom='0';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),2000);
+}
 </script>
+
 </body>
 </html>
