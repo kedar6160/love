@@ -203,6 +203,31 @@ function pickCard(card,text){
 function spawn(sym,cls){ const e=document.createElement('div'); e.className=cls; e.textContent=sym; e.style.left=Math.random()*100+'vw'; e.style.bottom='0'; document.body.appendChild(e); setTimeout(()=>e.remove(),2000); }
 
 cube.addEventListener('click',rollDice);
+
+  function triggerEasterEgg() {
+  // Prevent spam
+  if (final.classList.contains('show')) return;
+
+  meow.play();
+  if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+
+  speech.textContent = "😽 Pssst… he really loves you, you know.";
+  speech.classList.add('show');
+
+  cat.classList.add('show','turn');
+
+  // Cute explosion
+  for (let i = 0; i < 18; i++) spawn('💖', 'heart');
+
+  setTimeout(() => {
+    speech.textContent = "🐾 Secret unlocked: Forever mode enabled.";
+  }, 1200);
+
+  setTimeout(() => {
+    speech.classList.remove('show');
+    cat.classList.remove('turn');
+  }, 3000);
+  }
 </script>
 </body>
 </html>
